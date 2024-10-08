@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;
+
 namespace ProjetoAgendaDestruidoraDeMundos
 {
     public partial class frm_login : Form
@@ -37,6 +39,33 @@ namespace ProjetoAgendaDestruidoraDeMundos
         {
 
             verificaLogin();
+        }
+
+        private void bt_logar_Click(object sender, EventArgs e)
+        {
+            string strConn = "Server=localhost;Database=dbagenda;User ID=root;Password=root;";
+
+            MySqlConnection conn = new MySqlConnection(strConn);
+
+            conn.Open();
+
+            MySqlCommand sql = new MySqlCommand($"SELECT * FROM usuarios WHERE usuarios.usuario = @usuario AND usuarios.senha = @senha", conn);
+
+            sql.Parameters.AddWithValue("@usuario", txt_campo_usuario.Text);
+            sql.Parameters.AddWithValue("@senha", txt_campo_senha.Text);
+
+            MySqlDataReader retorna = sql.ExecuteReader();
+
+            if(retorna.Read() == true)
+            {
+                MessageBox.Show("funcionou!");
+            }
+            else
+            {
+                MessageBox.Show("Não funcionou");
+            }
+
+            conn.Close();
         }
     }
 }

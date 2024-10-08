@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using ProjetoAgendaDestruidoraDeMundos.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,9 +38,33 @@ namespace ProjetoAgendaDestruidoraDeMundos
             }
         }
 
+        private void cadastraUsuario()
+        {
+            MySqlConnection conn = ConexaoDB.CriaConexao();
+
+            //abrindo a conexão
+            conn.Open();
+
+            //string para insert
+            string sql = $"INSERT INTO usuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha)";
+
+            //monta o comando sql
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@nome", txt_campo_nome.Text);
+            cmd.Parameters.AddWithValue("@usuario", txt_campo_usuario.Text);
+            cmd.Parameters.AddWithValue("@telefone", txt_campo_telefone.Text);
+            cmd.Parameters.AddWithValue("@senha", txt_campo_senha.Text);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+        }
+
         private void bt_cadastrar_Click(object sender, EventArgs e)
         {
-
+            cadastraUsuario();
         }
 
         private void txt_campo_nome_TextChanged(object sender, EventArgs e)

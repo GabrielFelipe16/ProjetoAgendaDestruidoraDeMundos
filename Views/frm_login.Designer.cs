@@ -66,6 +66,7 @@
             bt_logar.TabIndex = 4;
             bt_logar.Text = "Entrar";
             bt_logar.UseVisualStyleBackColor = true;
+            bt_logar.Click += bt_logar_Click;
             // 
             // lbl_cadastro
             // 
