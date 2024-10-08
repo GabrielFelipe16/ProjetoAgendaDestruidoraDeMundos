@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_login));
             groupBox = new GroupBox();
+            bt_logar = new Button();
             lbl_cadastro = new LinkLabel();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            bt_entrar = new Button();
+            txt_campo_usuario = new TextBox();
+            txt_campo_senha = new TextBox();
             label2 = new Label();
             label1 = new Label();
             groupBox.SuspendLayout();
@@ -42,10 +42,10 @@
             // groupBox
             // 
             groupBox.BackColor = Color.Transparent;
+            groupBox.Controls.Add(bt_logar);
             groupBox.Controls.Add(lbl_cadastro);
-            groupBox.Controls.Add(textBox2);
-            groupBox.Controls.Add(textBox1);
-            groupBox.Controls.Add(bt_entrar);
+            groupBox.Controls.Add(txt_campo_usuario);
+            groupBox.Controls.Add(txt_campo_senha);
             groupBox.Controls.Add(label2);
             groupBox.Controls.Add(label1);
             groupBox.Font = new Font("Segoe UI", 16F);
@@ -56,6 +56,16 @@
             groupBox.TabIndex = 0;
             groupBox.TabStop = false;
             groupBox.Text = "Login";
+            // 
+            // bt_logar
+            // 
+            bt_logar.Enabled = false;
+            bt_logar.Location = new Point(90, 306);
+            bt_logar.Name = "bt_logar";
+            bt_logar.Size = new Size(111, 42);
+            bt_logar.TabIndex = 4;
+            bt_logar.Text = "Entrar";
+            bt_logar.UseVisualStyleBackColor = true;
             // 
             // lbl_cadastro
             // 
@@ -71,37 +81,25 @@
             lbl_cadastro.Text = "Não possuo cadastro";
             lbl_cadastro.LinkClicked += lbl_cadastro_LinkClicked;
             // 
-            // textBox2
+            // txt_campo_usuario
             // 
-            textBox2.BackColor = Color.White;
-            textBox2.Cursor = Cursors.IBeam;
-            textBox2.Location = new Point(38, 96);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(198, 36);
-            textBox2.TabIndex = 2;
+            txt_campo_usuario.BackColor = Color.White;
+            txt_campo_usuario.Cursor = Cursors.IBeam;
+            txt_campo_usuario.Location = new Point(38, 96);
+            txt_campo_usuario.Name = "txt_campo_usuario";
+            txt_campo_usuario.Size = new Size(198, 36);
+            txt_campo_usuario.TabIndex = 2;
+            txt_campo_usuario.TextChanged += txt_campo_usuario_TextChanged;
             // 
-            // textBox1
+            // txt_campo_senha
             // 
-            textBox1.Cursor = Cursors.IBeam;
-            textBox1.Location = new Point(38, 190);
-            textBox1.Name = "textBox1";
-            textBox1.PasswordChar = '*';
-            textBox1.Size = new Size(198, 36);
-            textBox1.TabIndex = 2;
-            // 
-            // bt_entrar
-            // 
-            bt_entrar.BackColor = Color.Silver;
-            bt_entrar.Cursor = Cursors.Hand;
-            bt_entrar.Enabled = false;
-            bt_entrar.Font = new Font("Segoe UI", 10F);
-            bt_entrar.Location = new Point(88, 290);
-            bt_entrar.Name = "bt_entrar";
-            bt_entrar.Size = new Size(86, 42);
-            bt_entrar.TabIndex = 1;
-            bt_entrar.Text = "Entrar";
-            bt_entrar.UseVisualStyleBackColor = false;
-            bt_entrar.Click += bt_entrar_Click;
+            txt_campo_senha.Cursor = Cursors.IBeam;
+            txt_campo_senha.Location = new Point(38, 190);
+            txt_campo_senha.Name = "txt_campo_senha";
+            txt_campo_senha.PasswordChar = '*';
+            txt_campo_senha.Size = new Size(198, 36);
+            txt_campo_senha.TabIndex = 2;
+            txt_campo_senha.TextChanged += txt_campo_senha_TextChanged;
             // 
             // label2
             // 
@@ -132,7 +130,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frm_login";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Cadastro Agenda Telefônica Mortifera";
+            Text = "Agenda Telefônica Mortifera: Login";
             groupBox.ResumeLayout(false);
             groupBox.PerformLayout();
             ResumeLayout(false);
@@ -141,11 +139,11 @@
         #endregion
 
         private GroupBox groupBox;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Button bt_entrar;
+        private TextBox txt_campo_usuario;
+        private TextBox txt_campo_senha;
         private Label label2;
         private Label label1;
         private LinkLabel lbl_cadastro;
+        private Button bt_logar;
     }
 }
