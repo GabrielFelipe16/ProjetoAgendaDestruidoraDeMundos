@@ -130,7 +130,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frm_login";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Agenda Telefônica Mortifera: Login";
+            Text = "Lista Telefônica Mortifera: Login";
             groupBox.ResumeLayout(false);
             groupBox.PerformLayout();
             ResumeLayout(false);
