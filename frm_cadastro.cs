@@ -1,8 +1,8 @@
 namespace ProjetoAgendaDestruidoraDeMundos
 {
-    public partial class Form1 : Form
+    public partial class frm_cadastro : Form
     {
-        public Form1()
+        public frm_cadastro()
         {
             InitializeComponent();
         }

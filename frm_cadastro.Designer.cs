@@ -1,6 +1,6 @@
 ﻿namespace ProjetoAgendaDestruidoraDeMundos
 {
-    partial class Form1
+    partial class frm_cadastro
     {
         /// <summary>
         ///  Required designer variable.
