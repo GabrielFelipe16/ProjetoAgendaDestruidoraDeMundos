@@ -28,7 +28,7 @@ namespace ProjetoAgendaDestruidoraDeMundos
                && txt_campo_confirma_senha.Text == txt_campo_senha.Text;
 
             //verificando se a variavel criada acima retorna true or false
-            if (casoBotaoValido )
+            if (casoBotaoValido)
             {
                 bt_cadastrar.Enabled = true;
             }
@@ -59,6 +59,15 @@ namespace ProjetoAgendaDestruidoraDeMundos
             cmd.ExecuteNonQuery();
 
             conn.Close();
+
+            DialogResult resultado = MessageBox.Show("Cadastro efetuado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            if(resultado == DialogResult.OK)
+            {
+                frm_login janela_login = new frm_login();
+                this.Hide();
+                janela_login.ShowDialog();
+            }
 
         }
 
@@ -95,6 +104,11 @@ namespace ProjetoAgendaDestruidoraDeMundos
         private void bt_cancelar_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void groupBox_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
