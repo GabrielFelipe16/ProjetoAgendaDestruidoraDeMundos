@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using ProjetoAgendaDestruidoraDeMundos.Controller;
 using ProjetoAgendaDestruidoraDeMundos.Data;
 using System;
 using System.Collections.Generic;
@@ -38,42 +39,29 @@ namespace ProjetoAgendaDestruidoraDeMundos
             }
         }
 
-        private void cadastraUsuario()
-        {
-            MySqlConnection conn = ConexaoDB.CriaConexao();
-
-            //abrindo a conexão
-            conn.Open();
-
-            //string para insert
-            string sql = $"INSERT INTO usuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha)";
-
-            //monta o comando sql
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-            cmd.Parameters.AddWithValue("@nome", txt_campo_nome.Text);
-            cmd.Parameters.AddWithValue("@usuario", txt_campo_usuario.Text);
-            cmd.Parameters.AddWithValue("@telefone", txt_campo_telefone.Text);
-            cmd.Parameters.AddWithValue("@senha", txt_campo_senha.Text);
-
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-
-            DialogResult resultado = MessageBox.Show("Cadastro efetuado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if(resultado == DialogResult.OK)
-            {
-                frm_login janela_login = new frm_login();
-                this.Hide();
-                janela_login.ShowDialog();
-            }
-
-        }
+        
 
         private void bt_cadastrar_Click(object sender, EventArgs e)
         {
-            cadastraUsuario();
+            UsuarioController cadastra = new UsuarioController();
+            bool resultado = cadastra.addUsuario(txt_campo_nome.Text, txt_campo_usuario.Text, txt_campo_telefone.Text, txt_campo_senha.Text);
+
+            if(resultado == true)
+            {
+                DialogResult mensagemEfetuado = MessageBox.Show("Cadastro efetuado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (mensagemEfetuado == DialogResult.OK)
+                {
+                    frm_login janela_login = new frm_login();
+                    this.Hide();
+                    janela_login.ShowDialog();
+                }
+            }
+            else
+            {
+                DialogResult mensagemErro = MessageBox.Show("Erro ao cadastrar", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         private void txt_campo_nome_TextChanged(object sender, EventArgs e)
