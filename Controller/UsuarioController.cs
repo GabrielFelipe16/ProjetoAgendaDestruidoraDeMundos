@@ -14,7 +14,7 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
         {
             MySqlConnection conn = ConexaoDB.CriaConexao();
             conn.Open();
-            string sql = $"INSERT INTO usuarios (nome, usuario, telefone, senha VALUES (@nome, @usuario, @telefone, @senha);";
+            string sql = $"INSERT INTO usuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@nome", nome);
