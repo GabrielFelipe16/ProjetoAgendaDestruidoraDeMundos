@@ -26,6 +26,7 @@ namespace ProjetoAgendaDestruidoraDeMundos
         private void lbl_cadastro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frm_cadastro janela_cadastro = new frm_cadastro();
+            this.Hide();
             janela_cadastro.Show();
         }
 
