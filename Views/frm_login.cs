@@ -1,4 +1,5 @@
 using MySql.Data.MySqlClient;
+using ProjetoAgendaDestruidoraDeMundos.Controller;
 
 namespace ProjetoAgendaDestruidoraDeMundos
 {
@@ -43,29 +44,18 @@ namespace ProjetoAgendaDestruidoraDeMundos
 
         private void bt_logar_Click(object sender, EventArgs e)
         {
-            string strConn = "Server=localhost;Database=dbagenda;User ID=root;Password=root;";
+            UsuarioController buscaUsuario = new UsuarioController();
 
-            MySqlConnection conn = new MySqlConnection(strConn);
+            bool resultado = buscaUsuario.LoginUsuario(txt_campo_usuario.Text, txt_campo_senha.Text);
 
-            conn.Open();
-
-            MySqlCommand sql = new MySqlCommand($"SELECT * FROM usuarios WHERE usuarios.usuario = @usuario AND usuarios.senha = @senha", conn);
-
-            sql.Parameters.AddWithValue("@usuario", txt_campo_usuario.Text);
-            sql.Parameters.AddWithValue("@senha", txt_campo_senha.Text);
-
-            MySqlDataReader retorna = sql.ExecuteReader();
-
-            if(retorna.Read() == true)
+            if (resultado == true)
             {
-                MessageBox.Show("funcionou!");
+                DialogResult mensagemEfetuado = MessageBox.Show("Login efetuado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Não funcionou");
+                DialogResult mensagemErro = MessageBox.Show("Erro ao Logar", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            conn.Close();
         }
     }
 }
