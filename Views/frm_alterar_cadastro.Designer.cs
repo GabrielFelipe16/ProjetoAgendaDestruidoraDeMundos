@@ -1,6 +1,6 @@
-﻿namespace ProjetoAgendaDestruidoraDeMundos
+﻿namespace ProjetoAgendaDestruidoraDeMundos.Views
 {
-    partial class frm_cadastro
+    partial class frm_alterar_cadastro
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_cadastro));
             groupBox = new GroupBox();
             label1 = new Label();
             label5 = new Label();
@@ -41,7 +40,7 @@
             txt_campo_usuario = new TextBox();
             txt_campo_nome = new TextBox();
             bt_cancelar = new Button();
-            bt_cadastrar = new Button();
+            bt_alterar = new Button();
             groupBox.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,15 +58,15 @@
             groupBox.Controls.Add(txt_campo_usuario);
             groupBox.Controls.Add(txt_campo_nome);
             groupBox.Controls.Add(bt_cancelar);
-            groupBox.Controls.Add(bt_cadastrar);
+            groupBox.Controls.Add(bt_alterar);
             groupBox.Font = new Font("Segoe UI", 16F);
             groupBox.ForeColor = Color.Black;
-            groupBox.Location = new Point(44, 12);
+            groupBox.Location = new Point(80, 26);
             groupBox.Name = "groupBox";
             groupBox.Size = new Size(357, 569);
-            groupBox.TabIndex = 0;
+            groupBox.TabIndex = 1;
             groupBox.TabStop = false;
-            groupBox.Text = "Cadastro";
+            groupBox.Text = "Alterar Cadastro";
             groupBox.Enter += groupBox_Enter;
             // 
             // label1
@@ -128,7 +127,6 @@
             txt_campo_confirma_senha.PlaceholderText = "Repita a senha acima";
             txt_campo_confirma_senha.Size = new Size(237, 41);
             txt_campo_confirma_senha.TabIndex = 1;
-            txt_campo_confirma_senha.TextChanged += txt_campo_confirma_senha_TextChanged;
             // 
             // txt_campo_senha
             // 
@@ -139,7 +137,6 @@
             txt_campo_senha.PlaceholderText = "Ex.: Godofredo123";
             txt_campo_senha.Size = new Size(237, 39);
             txt_campo_senha.TabIndex = 1;
-            txt_campo_senha.TextChanged += txt_campo_senha_TextChanged;
             // 
             // txt_campo_telefone
             // 
@@ -148,7 +145,6 @@
             txt_campo_telefone.Name = "txt_campo_telefone";
             txt_campo_telefone.Size = new Size(237, 42);
             txt_campo_telefone.TabIndex = 1;
-            txt_campo_telefone.TextChanged += txt_campo_telefone_TextChanged;
             // 
             // txt_campo_usuario
             // 
@@ -158,7 +154,6 @@
             txt_campo_usuario.PlaceholderText = "Ex.: João123";
             txt_campo_usuario.Size = new Size(237, 40);
             txt_campo_usuario.TabIndex = 1;
-            txt_campo_usuario.TextChanged += txt_campo_usuario_TextChanged;
             // 
             // txt_campo_nome
             // 
@@ -168,7 +163,6 @@
             txt_campo_nome.PlaceholderText = "Ex.: João";
             txt_campo_nome.Size = new Size(237, 44);
             txt_campo_nome.TabIndex = 1;
-            txt_campo_nome.TextChanged += txt_campo_nome_TextChanged;
             // 
             // bt_cancelar
             // 
@@ -178,31 +172,28 @@
             bt_cancelar.TabIndex = 0;
             bt_cancelar.Text = "Cancelar";
             bt_cancelar.UseVisualStyleBackColor = true;
-            bt_cancelar.Click += bt_cancelar_Click_1;
+            bt_cancelar.Click += bt_cancelar_Click;
             // 
-            // bt_cadastrar
+            // bt_alterar
             // 
-            bt_cadastrar.Enabled = false;
-            bt_cadastrar.Location = new Point(43, 478);
-            bt_cadastrar.Name = "bt_cadastrar";
-            bt_cadastrar.Size = new Size(124, 46);
-            bt_cadastrar.TabIndex = 0;
-            bt_cadastrar.Text = "Cadastrar";
-            bt_cadastrar.UseVisualStyleBackColor = true;
-            bt_cadastrar.Click += bt_cadastrar_Click;
+            bt_alterar.Enabled = false;
+            bt_alterar.Location = new Point(43, 478);
+            bt_alterar.Name = "bt_alterar";
+            bt_alterar.Size = new Size(124, 46);
+            bt_alterar.TabIndex = 0;
+            bt_alterar.Text = "Alterar";
+            bt_alterar.UseVisualStyleBackColor = true;
+            bt_alterar.Click += bt_cadastrar_Click;
             // 
-            // frm_cadastro
+            // frm_alterar_cadastro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.v602_nunoon_05_rippednotes;
-            BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(447, 593);
+            ClientSize = new Size(539, 634);
             Controls.Add(groupBox);
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "frm_cadastro";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Lista Telefônica Mortífera: Cadastro";
+            Name = "frm_alterar_cadastro";
+            Text = "frm_alterar_cadastro";
+            Load += frm_alterar_cadastro_Load;
             groupBox.ResumeLayout(false);
             groupBox.PerformLayout();
             ResumeLayout(false);
@@ -211,17 +202,17 @@
         #endregion
 
         private GroupBox groupBox;
-        private Button bt_cadastrar;
+        private Label label1;
+        private Label label5;
+        private Label label4;
         private Label label3;
         private Label label2;
+        private TextBox txt_campo_confirma_senha;
+        private TextBox txt_campo_senha;
         private TextBox txt_campo_telefone;
         private TextBox txt_campo_usuario;
         private TextBox txt_campo_nome;
         private Button bt_cancelar;
-        private Label label4;
-        private TextBox txt_campo_senha;
-        private Label label5;
-        private TextBox txt_campo_confirma_senha;
-        private Label label1;
+        private Button bt_alterar;
     }
 }

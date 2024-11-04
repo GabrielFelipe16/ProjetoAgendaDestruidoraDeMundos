@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoAgendaDestruidoraDeMundos.Controller;
 using ProjetoAgendaDestruidoraDeMundos.Data;
+using ProjetoAgendaDestruidoraDeMundos.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -91,7 +92,9 @@ namespace ProjetoAgendaDestruidoraDeMundos
 
         private void bt_cancelar_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            frm_menu janela_menu = new frm_menu();
+            this.Hide();
+            janela_menu.ShowDialog();
         }
 
         private void groupBox_Enter(object sender, EventArgs e)
