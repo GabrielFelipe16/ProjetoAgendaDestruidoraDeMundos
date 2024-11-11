@@ -35,10 +35,11 @@
             txt_categoria = new TextBox();
             btn_cadastrar = new Button();
             btn_sair = new Button();
-            dataGridView = new DataGridView();
+            dgv_Categoria = new DataGridView();
+            voltarToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Categoria).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -52,7 +53,7 @@
             // 
             // arquivoToolStripMenuItem
             // 
-            arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sairToolStripMenuItem });
+            arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sairToolStripMenuItem, voltarToolStripMenuItem });
             arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
             arquivoToolStripMenuItem.Size = new Size(61, 20);
             arquivoToolStripMenuItem.Text = "A&rquivo";
@@ -60,7 +61,7 @@
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(93, 22);
+            sairToolStripMenuItem.Size = new Size(180, 22);
             sairToolStripMenuItem.Text = "S&air";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -105,22 +106,29 @@
             btn_sair.UseVisualStyleBackColor = true;
             btn_sair.Click += btn_sair_Click;
             // 
-            // dataGridView
+            // dgv_Categoria
             // 
-            dataGridView.AllowUserToDeleteRows = false;
-            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(492, 45);
-            dataGridView.Name = "dataGridView";
-            dataGridView.ReadOnly = true;
-            dataGridView.Size = new Size(316, 281);
-            dataGridView.TabIndex = 3;
+            dgv_Categoria.AllowUserToDeleteRows = false;
+            dgv_Categoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Categoria.Location = new Point(492, 45);
+            dgv_Categoria.Name = "dgv_Categoria";
+            dgv_Categoria.ReadOnly = true;
+            dgv_Categoria.Size = new Size(316, 281);
+            dgv_Categoria.TabIndex = 3;
+            // 
+            // voltarToolStripMenuItem
+            // 
+            voltarToolStripMenuItem.Name = "voltarToolStripMenuItem";
+            voltarToolStripMenuItem.Size = new Size(180, 22);
+            voltarToolStripMenuItem.Text = "&Voltar";
+            voltarToolStripMenuItem.Click += voltarToolStripMenuItem_Click;
             // 
             // frm_cadastrar_categoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(869, 378);
-            Controls.Add(dataGridView);
+            Controls.Add(dgv_Categoria);
             Controls.Add(btn_sair);
             Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
@@ -128,11 +136,12 @@
             Name = "frm_cadastrar_categoria";
             Text = "frm_cadastrar_categoria";
             FormClosed += frm_cadastrar_categoria_FormClosed;
+            Load += frm_cadastrar_categoria_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Categoria).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -146,6 +155,7 @@
         private Button btn_cadastrar;
         private TextBox txt_categoria;
         private Button btn_sair;
-        private DataGridView dataGridView;
+        private DataGridView dgv_Categoria;
+        private ToolStripMenuItem voltarToolStripMenuItem;
     }
 }

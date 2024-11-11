@@ -42,11 +42,33 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
             {
                 DialogResult mensagemErro = MessageBox.Show("Erro ao cadastrar a categoria", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+            CategoriaController getCategorias = new CategoriaController();
+
+            DataTable tabela = getCategorias.GetCategorias();
+
+            dgv_Categoria.DataSource = tabela;
         }
 
         private void btn_sair_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void frm_cadastrar_categoria_Load(object sender, EventArgs e)
+        {
+            CategoriaController getCategorias = new CategoriaController();
+
+            DataTable tabela = getCategorias.GetCategorias();
+
+            dgv_Categoria.DataSource = tabela;
+        }
+
+        private void voltarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_menu janela_menu =  new frm_menu();
+            this.Hide();
+            janela_menu.ShowDialog();
         }
     }
 }

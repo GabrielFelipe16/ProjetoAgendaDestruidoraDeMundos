@@ -53,7 +53,7 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
             {
                 try
                 {
-                    string sql = "SELECT id_categoria AS 'Código', categoria AS 'Categorias';";
+                    string sql = "SELECT id_categoria AS 'Código', categoria AS 'Categorias' FROM categorias;";
 
                     conn.Open();
 
