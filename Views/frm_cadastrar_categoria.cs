@@ -43,5 +43,10 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
                 DialogResult mensagemErro = MessageBox.Show("Erro ao cadastrar a categoria", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btn_sair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

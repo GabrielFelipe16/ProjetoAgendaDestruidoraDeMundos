@@ -12,9 +12,10 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
     {
         public bool addUsuario(string nome, string usuario, string telefone, string senha)
         {
+            MySqlConnection conn = null;
             try
             {
-                MySqlConnection conn = ConexaoDB.CriaConexao();
+                conn = ConexaoDB.CriaConexao();
                 conn.Open();
                 string sql = $"INSERT INTO usuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -25,8 +26,6 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
                 cmd.Parameters.AddWithValue("@senha", senha);
 
                 int linhasAfetadas = cmd.ExecuteNonQuery();
-
-                conn.Close();
 
                 if (linhasAfetadas > 0)
                 {
@@ -40,6 +39,10 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
             {
                 MessageBox.Show($"Erro ao cadastrar: {e.Message}");
                 return false;
+            }
+            finally
+            {
+               conn.Close();
             }
             
         }
@@ -77,6 +80,10 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
                 {
                     MessageBox.Show($"Erro ao logar: {e.Message}");
                     return false;
+                }
+                finally
+                {
+                    conn.Close();
                 }
             }
         }

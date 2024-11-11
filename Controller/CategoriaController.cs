@@ -25,8 +25,6 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
 
                     int linhasAfetadas = cmd.ExecuteNonQuery();
 
-                    conn.Close();
-
                     if (linhasAfetadas > 0)
                     {
                         return true;
@@ -40,6 +38,10 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
                 {
                     MessageBox.Show($"Erro ao cadastrar: {e.Message}");
                     return false;
+                }
+                finally
+                {
+                    conn.Close();
                 }
             }
         }

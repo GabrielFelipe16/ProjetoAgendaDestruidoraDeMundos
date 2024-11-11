@@ -32,8 +32,8 @@
             arquivoToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
             groupBox1 = new GroupBox();
-            btn_cadastrar = new Button();
             txt_categoria = new TextBox();
+            btn_cadastrar = new Button();
             btn_sair = new Button();
             menuStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -58,7 +58,7 @@
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(180, 22);
+            sairToolStripMenuItem.Size = new Size(93, 22);
             sairToolStripMenuItem.Text = "S&air";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -74,6 +74,15 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Insira a nova categoria";
             // 
+            // txt_categoria
+            // 
+            txt_categoria.Location = new Point(6, 75);
+            txt_categoria.MaxLength = 45;
+            txt_categoria.Multiline = true;
+            txt_categoria.Name = "txt_categoria";
+            txt_categoria.Size = new Size(398, 45);
+            txt_categoria.TabIndex = 1;
+            // 
             // btn_cadastrar
             // 
             btn_cadastrar.Location = new Point(6, 143);
@@ -84,14 +93,6 @@
             btn_cadastrar.UseVisualStyleBackColor = true;
             btn_cadastrar.Click += btn_cadastrar_Click;
             // 
-            // txt_categoria
-            // 
-            txt_categoria.Location = new Point(6, 75);
-            txt_categoria.Multiline = true;
-            txt_categoria.Name = "txt_categoria";
-            txt_categoria.Size = new Size(398, 45);
-            txt_categoria.TabIndex = 1;
-            // 
             // btn_sair
             // 
             btn_sair.Location = new Point(26, 333);
@@ -100,6 +101,7 @@
             btn_sair.TabIndex = 2;
             btn_sair.Text = "&Sair";
             btn_sair.UseVisualStyleBackColor = true;
+            btn_sair.Click += btn_sair_Click;
             // 
             // frm_cadastrar_categoria
             // 
