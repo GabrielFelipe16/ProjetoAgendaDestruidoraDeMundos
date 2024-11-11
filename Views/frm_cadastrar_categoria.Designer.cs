@@ -35,8 +35,10 @@
             txt_categoria = new TextBox();
             btn_cadastrar = new Button();
             btn_sair = new Button();
+            dataGridView = new DataGridView();
             menuStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -44,7 +46,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(481, 24);
+            menuStrip1.Size = new Size(869, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -103,11 +105,22 @@
             btn_sair.UseVisualStyleBackColor = true;
             btn_sair.Click += btn_sair_Click;
             // 
+            // dataGridView
+            // 
+            dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Location = new Point(492, 45);
+            dataGridView.Name = "dataGridView";
+            dataGridView.ReadOnly = true;
+            dataGridView.Size = new Size(316, 281);
+            dataGridView.TabIndex = 3;
+            // 
             // frm_cadastrar_categoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(481, 378);
+            ClientSize = new Size(869, 378);
+            Controls.Add(dataGridView);
             Controls.Add(btn_sair);
             Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
@@ -119,6 +132,7 @@
             menuStrip1.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -132,5 +146,6 @@
         private Button btn_cadastrar;
         private TextBox txt_categoria;
         private Button btn_sair;
+        private DataGridView dataGridView;
     }
 }
