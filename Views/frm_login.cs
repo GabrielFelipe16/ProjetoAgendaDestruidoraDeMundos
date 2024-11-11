@@ -1,5 +1,6 @@
 using MySql.Data.MySqlClient;
 using ProjetoAgendaDestruidoraDeMundos.Controller;
+using ProjetoAgendaDestruidoraDeMundos.Views;
 
 namespace ProjetoAgendaDestruidoraDeMundos
 {
@@ -52,6 +53,13 @@ namespace ProjetoAgendaDestruidoraDeMundos
             if (resultado == true)
             {
                 DialogResult mensagemEfetuado = MessageBox.Show("Login efetuado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (mensagemEfetuado == DialogResult.OK)
+                {
+                    frm_menu janela_menu = new frm_menu();
+                    this.Hide();
+                    janela_menu.ShowDialog();
+                }
             }
             else
             {

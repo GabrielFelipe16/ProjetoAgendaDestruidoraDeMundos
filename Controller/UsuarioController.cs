@@ -80,6 +80,5 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
                 }
             }
         }
-
     }
 }

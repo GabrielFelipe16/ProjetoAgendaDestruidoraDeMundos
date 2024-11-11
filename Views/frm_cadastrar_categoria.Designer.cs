@@ -1,6 +1,6 @@
 ﻿namespace ProjetoAgendaDestruidoraDeMundos.Views
 {
-    partial class frm_menu
+    partial class frm_cadastrar_categoria
     {
         /// <summary>
         /// Required designer variable.
@@ -31,19 +31,20 @@
             menuStrip1 = new MenuStrip();
             arquivoToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
-            editarToolStripMenuItem = new ToolStripMenuItem();
-            cadastroToolStripMenuItem = new ToolStripMenuItem();
-            categoriaToolStripMenuItem = new ToolStripMenuItem();
-            alterarCadastroToolStripMenuItem = new ToolStripMenuItem();
+            groupBox1 = new GroupBox();
+            btn_cadastrar = new Button();
+            txt_categoria = new TextBox();
+            btn_sair = new Button();
             menuStrip1.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(481, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -61,47 +62,61 @@
             sairToolStripMenuItem.Text = "S&air";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
-            // editarToolStripMenuItem
+            // groupBox1
             // 
-            editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem });
-            editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            editarToolStripMenuItem.Size = new Size(49, 20);
-            editarToolStripMenuItem.Text = "E&ditar";
+            groupBox1.Controls.Add(txt_categoria);
+            groupBox1.Controls.Add(btn_cadastrar);
+            groupBox1.Font = new Font("Segoe UI", 16F);
+            groupBox1.Location = new Point(26, 55);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(410, 196);
+            groupBox1.TabIndex = 1;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Insira a nova categoria";
             // 
-            // cadastroToolStripMenuItem
+            // btn_cadastrar
             // 
-            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriaToolStripMenuItem, alterarCadastroToolStripMenuItem });
-            cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            cadastroToolStripMenuItem.Size = new Size(180, 22);
-            cadastroToolStripMenuItem.Text = "C&adastro";
+            btn_cadastrar.Location = new Point(6, 143);
+            btn_cadastrar.Name = "btn_cadastrar";
+            btn_cadastrar.Size = new Size(398, 42);
+            btn_cadastrar.TabIndex = 0;
+            btn_cadastrar.Text = "C&adastrar";
+            btn_cadastrar.UseVisualStyleBackColor = true;
+            btn_cadastrar.Click += btn_cadastrar_Click;
             // 
-            // categoriaToolStripMenuItem
+            // txt_categoria
             // 
-            categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(180, 22);
-            categoriaToolStripMenuItem.Text = "Categoria";
-            categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
+            txt_categoria.Location = new Point(6, 75);
+            txt_categoria.Multiline = true;
+            txt_categoria.Name = "txt_categoria";
+            txt_categoria.Size = new Size(398, 45);
+            txt_categoria.TabIndex = 1;
             // 
-            // alterarCadastroToolStripMenuItem
+            // btn_sair
             // 
-            alterarCadastroToolStripMenuItem.Name = "alterarCadastroToolStripMenuItem";
-            alterarCadastroToolStripMenuItem.Size = new Size(180, 22);
-            alterarCadastroToolStripMenuItem.Text = "A&lterar Cadastro";
-            alterarCadastroToolStripMenuItem.Click += alterarCadastroToolStripMenuItem_Click;
+            btn_sair.Location = new Point(26, 333);
+            btn_sair.Name = "btn_sair";
+            btn_sair.Size = new Size(69, 33);
+            btn_sair.TabIndex = 2;
+            btn_sair.Text = "&Sair";
+            btn_sair.UseVisualStyleBackColor = true;
             // 
-            // frm_menu
+            // frm_cadastrar_categoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(481, 378);
+            Controls.Add(btn_sair);
+            Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Name = "frm_menu";
-            Text = "Menu";
-            FormClosed += frm_menu_FormClosed;
-            Load += frm_menu_Load;
+            Name = "frm_cadastrar_categoria";
+            Text = "frm_cadastrar_categoria";
+            FormClosed += frm_cadastrar_categoria_FormClosed;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -111,9 +126,9 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem arquivoToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
-        private ToolStripMenuItem editarToolStripMenuItem;
-        private ToolStripMenuItem cadastroToolStripMenuItem;
-        private ToolStripMenuItem categoriaToolStripMenuItem;
-        private ToolStripMenuItem alterarCadastroToolStripMenuItem;
+        private GroupBox groupBox1;
+        private Button btn_cadastrar;
+        private TextBox txt_categoria;
+        private Button btn_sair;
     }
 }

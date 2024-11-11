@@ -17,18 +17,33 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
             InitializeComponent();
         }
 
-        private void bt_alterar_cadastro_Click(object sender, EventArgs e)
+        private void frm_menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_cadastrar_categoria janela_cadastro_categoria = new frm_cadastrar_categoria();
+            this.Hide();
+            janela_cadastro_categoria.ShowDialog();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void alterarCadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_alterar_cadastro janela_alterar_cadastro = new frm_alterar_cadastro();
             this.Hide();
             janela_alterar_cadastro.ShowDialog();
         }
 
-        private void bt_deletar_cadastro_Click(object sender, EventArgs e)
+        private void frm_menu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frm_deletar_cadastro janela_deletar_cadastro = new frm_deletar_cadastro();
-            this.Hide();
-            janela_deletar_cadastro.ShowDialog();
+            Application.Exit();
         }
     }
 }

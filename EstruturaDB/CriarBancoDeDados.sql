@@ -7,3 +7,7 @@ CREATE TABLE IF NOT EXISTS usuarios(
     telefone VARCHAR(15),
     senha VARCHAR(20) NOT NULL
 );
+CREATE TABLE IF NOT EXISTS categorias(
+	id_categoria INT PRIMARY KEY AUTO_INCREMENT,
+    categoria VARCHAR(45) NOT NULL
+);
