@@ -65,7 +65,6 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
                         {
                             if (reader.Read())
                             {
-                                MessageBox.Show("Usuário encontrado!");
                                 return true; // Retorna verdadeiro se o usuário foi encontrado
                             }
                             else

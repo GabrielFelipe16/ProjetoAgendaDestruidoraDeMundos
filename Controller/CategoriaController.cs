@@ -80,5 +80,41 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
                 }
             }
         }
+
+        public bool DropCategoria(int chavePrimaria)
+        {
+            using (MySqlConnection conn = ConexaoDB.CriaConexao())
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = "delete from categorias where id_categoria = @valor;";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                    cmd.Parameters.AddWithValue("@valor", chavePrimaria);
+
+                    int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                    if (linhasAfetadas > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"Erro ao deletar: {e.Message}");
+                    return false;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
     }
 }

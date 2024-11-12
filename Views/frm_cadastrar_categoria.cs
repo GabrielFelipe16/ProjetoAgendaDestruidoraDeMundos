@@ -34,11 +34,7 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
 
             bool resultado = cadastraCategoria.CadastraCategoria(txt_categoria.Text);
 
-            if (resultado == true)
-            {
-                DialogResult mensagemEfetuado = MessageBox.Show("Cadastro de categoria efetuado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
+            if (resultado == false)
             {
                 DialogResult mensagemErro = MessageBox.Show("Erro ao cadastrar a categoria", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -66,9 +62,35 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
 
         private void voltarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_menu janela_menu =  new frm_menu();
+            frm_menu janela_menu = new frm_menu();
             this.Hide();
             janela_menu.ShowDialog();
+        }
+
+        private void bt_teste_Click(object sender, EventArgs e)
+        {
+            CategoriaController getCategorias = new CategoriaController();
+            CategoriaController deleteCategoria = new CategoriaController();
+
+            int categorias = Convert.ToInt32(dgv_Categoria.SelectedRows[0].Cells["Código"].Value);
+
+            bool resultado = deleteCategoria.DropCategoria(categorias);
+
+            if(resultado == false)
+            {
+                MessageBox.Show("Falhou");
+            }
+
+            DataTable tabela = getCategorias.GetCategorias();
+
+            dgv_Categoria.DataSource = tabela;
+
+            
+        }
+
+        private void dgv_Categoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
