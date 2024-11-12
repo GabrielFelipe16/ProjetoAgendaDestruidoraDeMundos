@@ -36,7 +36,7 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
 
         private void alterarCadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_alterar_cadastro janela_alterar_cadastro = new frm_alterar_cadastro();
+            frm_cadastro_usuario janela_alterar_cadastro = new frm_cadastro_usuario();
             this.Hide();
             janela_alterar_cadastro.ShowDialog();
         }
@@ -44,6 +44,13 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
         private void frm_menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_cadastro_usuario janela_cadastro_usuario = new frm_cadastro_usuario();
+            this.Hide();
+            janela_cadastro_usuario.ShowDialog();
         }
     }
 }

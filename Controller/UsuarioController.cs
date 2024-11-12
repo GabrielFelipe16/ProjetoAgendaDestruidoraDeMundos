@@ -2,6 +2,7 @@
 using ProjetoAgendaDestruidoraDeMundos.Data;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -78,6 +79,76 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
                 catch (Exception e)
                 {
                     MessageBox.Show($"Erro ao logar: {e.Message}");
+                    return false;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public DataTable GetUsuarios()
+        {
+            using (MySqlConnection conn = ConexaoDB.CriaConexao())
+            {
+                try
+                {
+                    string sql = "SELECT idUsuario AS 'Código', nome AS 'Nome', usuario AS 'Usuários', telefone AS 'Telefone' FROM usuarios;";
+
+                    conn.Open();
+
+                    //cria um adaptador
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conn);
+
+                    //cria uma tabela vazia
+                    DataTable tabela = new DataTable();
+
+                    //pede para o adaptador preencher a tabela 
+                    adapter.Fill(tabela);
+
+                    //retorna a tabela
+                    return tabela;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"ERRO AO RECUPERAR USUARIOS: {e.Message}");
+                    return new DataTable();
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public bool DropUsuario(int chavePrimaria)
+        {
+            using (MySqlConnection conn = ConexaoDB.CriaConexao())
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = "DELETE FROM usuarios WHERE idUsuario = @valor;";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                    cmd.Parameters.AddWithValue("@valor", chavePrimaria);
+
+                    int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                    if (linhasAfetadas > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"Erro ao deletar: {e.Message}");
                     return false;
                 }
                 finally

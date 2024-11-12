@@ -40,14 +40,14 @@ namespace ProjetoAgendaDestruidoraDeMundos
             }
         }
 
-        
+
 
         private void bt_cadastrar_Click(object sender, EventArgs e)
         {
             UsuarioController cadastra = new UsuarioController();
             bool resultado = cadastra.addUsuario(txt_campo_nome.Text, txt_campo_usuario.Text, txt_campo_telefone.Text, txt_campo_senha.Text);
 
-            if(resultado == true)
+            if (resultado == true)
             {
                 DialogResult mensagemEfetuado = MessageBox.Show("Cadastro efetuado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -100,6 +100,11 @@ namespace ProjetoAgendaDestruidoraDeMundos
         private void groupBox_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void frm_cadastro_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

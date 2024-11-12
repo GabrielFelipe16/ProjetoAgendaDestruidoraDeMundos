@@ -13,6 +13,15 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
 {
     public partial class frm_cadastrar_categoria : Form
     {
+        private void AtualizaDataGrid()
+        {
+            CategoriaController getCategorias = new CategoriaController();
+
+            DataTable tabela = getCategorias.GetCategorias();
+
+            dgv_Categoria.DataSource = tabela;
+        }
+
         public frm_cadastrar_categoria()
         {
             InitializeComponent();
@@ -39,11 +48,9 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
                 DialogResult mensagemErro = MessageBox.Show("Erro ao cadastrar a categoria", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            CategoriaController getCategorias = new CategoriaController();
+            AtualizaDataGrid();
 
-            DataTable tabela = getCategorias.GetCategorias();
-
-            dgv_Categoria.DataSource = tabela;
+            txt_categoria.Text = "";
         }
 
         private void btn_sair_Click(object sender, EventArgs e)
@@ -53,11 +60,7 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
 
         private void frm_cadastrar_categoria_Load(object sender, EventArgs e)
         {
-            CategoriaController getCategorias = new CategoriaController();
-
-            DataTable tabela = getCategorias.GetCategorias();
-
-            dgv_Categoria.DataSource = tabela;
+            AtualizaDataGrid();
         }
 
         private void voltarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,7 +72,6 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
 
         private void bt_teste_Click(object sender, EventArgs e)
         {
-            CategoriaController getCategorias = new CategoriaController();
             CategoriaController deleteCategoria = new CategoriaController();
 
             int categorias = Convert.ToInt32(dgv_Categoria.SelectedRows[0].Cells["Código"].Value);
@@ -81,11 +83,7 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
                 MessageBox.Show("Falhou");
             }
 
-            DataTable tabela = getCategorias.GetCategorias();
-
-            dgv_Categoria.DataSource = tabela;
-
-            
+            AtualizaDataGrid();
         }
 
         private void dgv_Categoria_CellContentClick(object sender, DataGridViewCellEventArgs e)

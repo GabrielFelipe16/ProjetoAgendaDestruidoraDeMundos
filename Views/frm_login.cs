@@ -61,10 +61,11 @@ namespace ProjetoAgendaDestruidoraDeMundos
                     janela_menu.ShowDialog();
                 }
             }
-            else
-            {
-                DialogResult mensagemErro = MessageBox.Show("Erro ao Logar", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+        }
+
+        private void frm_login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

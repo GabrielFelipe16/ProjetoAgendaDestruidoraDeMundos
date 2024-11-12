@@ -51,7 +51,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
-            menuStrip1.Size = new Size(993, 30);
+            menuStrip1.Size = new Size(981, 30);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -132,7 +132,7 @@
             dgv_Categoria.ReadOnly = true;
             dgv_Categoria.RowHeadersWidth = 51;
             dgv_Categoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Categoria.Size = new Size(361, 375);
+            dgv_Categoria.Size = new Size(300, 375);
             dgv_Categoria.TabIndex = 3;
             dgv_Categoria.CellContentClick += dgv_Categoria_CellContentClick;
             // 
@@ -150,7 +150,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(993, 504);
+            ClientSize = new Size(981, 504);
             Controls.Add(btn_excluir_categoria);
             Controls.Add(dgv_Categoria);
             Controls.Add(btn_sair);

@@ -1,6 +1,6 @@
 ﻿namespace ProjetoAgendaDestruidoraDeMundos.Views
 {
-    partial class frm_alterar_cadastro
+    partial class frm_cadastro_usuario
     {
         /// <summary>
         /// Required designer variable.
@@ -40,8 +40,13 @@
             txt_campo_usuario = new TextBox();
             txt_campo_nome = new TextBox();
             bt_cancelar = new Button();
-            bt_alterar = new Button();
+            btn_cadastrar = new Button();
+            mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            dgv_usuario = new DataGridView();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            btn_excluir = new Button();
             groupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_usuario).BeginInit();
             SuspendLayout();
             // 
             // groupBox
@@ -58,17 +63,17 @@
             groupBox.Controls.Add(txt_campo_usuario);
             groupBox.Controls.Add(txt_campo_nome);
             groupBox.Controls.Add(bt_cancelar);
-            groupBox.Controls.Add(bt_alterar);
+            groupBox.Controls.Add(btn_cadastrar);
             groupBox.Font = new Font("Segoe UI", 16F);
             groupBox.ForeColor = Color.Black;
-            groupBox.Location = new Point(91, 35);
+            groupBox.Location = new Point(12, 35);
             groupBox.Margin = new Padding(3, 4, 3, 4);
             groupBox.Name = "groupBox";
             groupBox.Padding = new Padding(3, 4, 3, 4);
-            groupBox.Size = new Size(408, 759);
+            groupBox.Size = new Size(390, 717);
             groupBox.TabIndex = 1;
             groupBox.TabStop = false;
-            groupBox.Text = "Alterar Cadastro";
+            groupBox.Text = "Cadastrar Novo Usuario";
             groupBox.Enter += groupBox_Enter;
             // 
             // label1
@@ -130,6 +135,7 @@
             txt_campo_confirma_senha.PlaceholderText = "Repita a senha acima";
             txt_campo_confirma_senha.Size = new Size(270, 53);
             txt_campo_confirma_senha.TabIndex = 1;
+            txt_campo_confirma_senha.TextChanged += txt_campo_confirma_senha_TextChanged;
             // 
             // txt_campo_senha
             // 
@@ -141,6 +147,7 @@
             txt_campo_senha.PlaceholderText = "Ex.: Godofredo123";
             txt_campo_senha.Size = new Size(270, 51);
             txt_campo_senha.TabIndex = 1;
+            txt_campo_senha.TextChanged += txt_campo_senha_TextChanged;
             // 
             // txt_campo_telefone
             // 
@@ -150,6 +157,7 @@
             txt_campo_telefone.Name = "txt_campo_telefone";
             txt_campo_telefone.Size = new Size(270, 55);
             txt_campo_telefone.TabIndex = 1;
+            txt_campo_telefone.TextChanged += txt_campo_telefone_TextChanged;
             // 
             // txt_campo_usuario
             // 
@@ -160,6 +168,7 @@
             txt_campo_usuario.PlaceholderText = "Ex.: João123";
             txt_campo_usuario.Size = new Size(270, 52);
             txt_campo_usuario.TabIndex = 1;
+            txt_campo_usuario.TextChanged += txt_campo_usuario_TextChanged;
             // 
             // txt_campo_nome
             // 
@@ -170,6 +179,7 @@
             txt_campo_nome.PlaceholderText = "Ex.: João";
             txt_campo_nome.Size = new Size(270, 57);
             txt_campo_nome.TabIndex = 1;
+            txt_campo_nome.TextChanged += txt_campo_nome_TextChanged;
             // 
             // bt_cancelar
             // 
@@ -182,30 +192,62 @@
             bt_cancelar.UseVisualStyleBackColor = true;
             bt_cancelar.Click += bt_cancelar_Click;
             // 
-            // bt_alterar
+            // btn_cadastrar
             // 
-            bt_alterar.Enabled = false;
-            bt_alterar.Location = new Point(49, 637);
-            bt_alterar.Margin = new Padding(3, 4, 3, 4);
-            bt_alterar.Name = "bt_alterar";
-            bt_alterar.Size = new Size(142, 61);
-            bt_alterar.TabIndex = 0;
-            bt_alterar.Text = "Alterar";
-            bt_alterar.UseVisualStyleBackColor = true;
-            bt_alterar.Click += bt_cadastrar_Click;
+            btn_cadastrar.Enabled = false;
+            btn_cadastrar.Location = new Point(49, 637);
+            btn_cadastrar.Margin = new Padding(3, 4, 3, 4);
+            btn_cadastrar.Name = "btn_cadastrar";
+            btn_cadastrar.Size = new Size(142, 61);
+            btn_cadastrar.TabIndex = 0;
+            btn_cadastrar.Text = "Cadastrar";
+            btn_cadastrar.UseVisualStyleBackColor = true;
+            btn_cadastrar.Click += bt_cadastrar_Click;
             // 
-            // frm_alterar_cadastro
+            // mySqlCommand1
+            // 
+            mySqlCommand1.CacheAge = 0;
+            mySqlCommand1.Connection = null;
+            mySqlCommand1.EnableCaching = false;
+            mySqlCommand1.Transaction = null;
+            // 
+            // dgv_usuario
+            // 
+            dgv_usuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_usuario.Location = new Point(502, 35);
+            dgv_usuario.Name = "dgv_usuario";
+            dgv_usuario.ReadOnly = true;
+            dgv_usuario.RowHeadersWidth = 51;
+            dgv_usuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_usuario.Size = new Size(559, 759);
+            dgv_usuario.TabIndex = 2;
+            // 
+            // btn_excluir
+            // 
+            btn_excluir.Location = new Point(408, 125);
+            btn_excluir.Name = "btn_excluir";
+            btn_excluir.Size = new Size(77, 54);
+            btn_excluir.TabIndex = 3;
+            btn_excluir.Text = "Excluir";
+            btn_excluir.UseVisualStyleBackColor = true;
+            btn_excluir.Click += btn_excluir_Click;
+            // 
+            // frm_cadastro_usuario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(616, 845);
+            ClientSize = new Size(1073, 845);
+            Controls.Add(btn_excluir);
+            Controls.Add(dgv_usuario);
             Controls.Add(groupBox);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "frm_alterar_cadastro";
+            Name = "frm_cadastro_usuario";
             Text = "Lista Telefônica Mortífera: Alterar Cadastro";
+            FormClosed += frm_cadastro_usuario_FormClosed;
             Load += frm_alterar_cadastro_Load;
             groupBox.ResumeLayout(false);
             groupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_usuario).EndInit();
             ResumeLayout(false);
         }
 
@@ -223,6 +265,10 @@
         private TextBox txt_campo_usuario;
         private TextBox txt_campo_nome;
         private Button bt_cancelar;
-        private Button bt_alterar;
+        private Button btn_cadastrar;
+        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private DataGridView dgv_usuario;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button btn_excluir;
     }
 }

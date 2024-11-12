@@ -34,7 +34,7 @@
             editarToolStripMenuItem = new ToolStripMenuItem();
             cadastroToolStripMenuItem = new ToolStripMenuItem();
             categoriaToolStripMenuItem = new ToolStripMenuItem();
-            alterarCadastroToolStripMenuItem = new ToolStripMenuItem();
+            usuariosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -72,24 +72,24 @@
             // 
             // cadastroToolStripMenuItem
             // 
-            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriaToolStripMenuItem, alterarCadastroToolStripMenuItem });
+            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriaToolStripMenuItem, usuariosToolStripMenuItem });
             cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            cadastroToolStripMenuItem.Size = new Size(151, 26);
+            cadastroToolStripMenuItem.Size = new Size(224, 26);
             cadastroToolStripMenuItem.Text = "C&adastro";
             // 
             // categoriaToolStripMenuItem
             // 
             categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(200, 26);
-            categoriaToolStripMenuItem.Text = "Categoria";
+            categoriaToolStripMenuItem.Size = new Size(224, 26);
+            categoriaToolStripMenuItem.Text = "Categorias";
             categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
             // 
-            // alterarCadastroToolStripMenuItem
+            // usuariosToolStripMenuItem
             // 
-            alterarCadastroToolStripMenuItem.Name = "alterarCadastroToolStripMenuItem";
-            alterarCadastroToolStripMenuItem.Size = new Size(200, 26);
-            alterarCadastroToolStripMenuItem.Text = "A&lterar Cadastro";
-            alterarCadastroToolStripMenuItem.Click += alterarCadastroToolStripMenuItem_Click;
+            usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            usuariosToolStripMenuItem.Size = new Size(224, 26);
+            usuariosToolStripMenuItem.Text = "Usuários";
+            usuariosToolStripMenuItem.Click += usuariosToolStripMenuItem_Click;
             // 
             // frm_menu
             // 
@@ -117,6 +117,6 @@
         private ToolStripMenuItem editarToolStripMenuItem;
         private ToolStripMenuItem cadastroToolStripMenuItem;
         private ToolStripMenuItem categoriaToolStripMenuItem;
-        private ToolStripMenuItem alterarCadastroToolStripMenuItem;
+        private ToolStripMenuItem usuariosToolStripMenuItem;
     }
 }
