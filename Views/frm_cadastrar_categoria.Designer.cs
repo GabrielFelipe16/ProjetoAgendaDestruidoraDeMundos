@@ -138,7 +138,7 @@
             // 
             // btn_excluir_categoria
             // 
-            btn_excluir_categoria.Location = new Point(333, 435);
+            btn_excluir_categoria.Location = new Point(402, 435);
             btn_excluir_categoria.Name = "btn_excluir_categoria";
             btn_excluir_categoria.Size = new Size(97, 53);
             btn_excluir_categoria.TabIndex = 5;
