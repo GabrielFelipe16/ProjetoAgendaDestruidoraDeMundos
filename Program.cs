@@ -1,3 +1,5 @@
+using ProjetoAgendaDestruidoraDeMundos.Views;
+
 namespace ProjetoAgendaDestruidoraDeMundos
 {
     internal static class Program

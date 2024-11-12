@@ -29,27 +29,22 @@
         private void InitializeComponent()
         {
             groupBox = new GroupBox();
+            btn_alterar_senha = new Button();
+            txt_alterar_senha = new TextBox();
             label1 = new Label();
-            label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            txt_campo_confirma_senha = new TextBox();
-            txt_campo_senha = new TextBox();
             txt_campo_telefone = new TextBox();
             txt_campo_usuario = new TextBox();
             txt_campo_nome = new TextBox();
             bt_cancelar = new Button();
-            btn_cadastrar = new Button();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             dgv_usuario = new DataGridView();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             btn_excluir = new Button();
-            textBox1 = new TextBox();
             mySqlCommand2 = new MySql.Data.MySqlClient.MySqlCommand();
-            label6 = new Label();
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            btn_alterar_senha = new Button();
             groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_usuario).BeginInit();
             SuspendLayout();
@@ -57,27 +52,44 @@
             // groupBox
             // 
             groupBox.BackColor = Color.Transparent;
+            groupBox.Controls.Add(btn_alterar_senha);
+            groupBox.Controls.Add(txt_alterar_senha);
             groupBox.Controls.Add(label1);
-            groupBox.Controls.Add(label5);
             groupBox.Controls.Add(label4);
             groupBox.Controls.Add(label3);
             groupBox.Controls.Add(label2);
-            groupBox.Controls.Add(txt_campo_confirma_senha);
-            groupBox.Controls.Add(txt_campo_senha);
             groupBox.Controls.Add(txt_campo_telefone);
             groupBox.Controls.Add(txt_campo_usuario);
             groupBox.Controls.Add(txt_campo_nome);
             groupBox.Controls.Add(bt_cancelar);
-            groupBox.Controls.Add(btn_cadastrar);
             groupBox.Font = new Font("Segoe UI", 16F);
             groupBox.ForeColor = Color.Black;
             groupBox.Location = new Point(10, 26);
             groupBox.Name = "groupBox";
-            groupBox.Size = new Size(288, 541);
+            groupBox.Size = new Size(288, 486);
             groupBox.TabIndex = 1;
             groupBox.TabStop = false;
-            groupBox.Text = "Cadastrar Novo Usuario";
+            groupBox.Text = "Alterar Usuario";
             groupBox.Enter += groupBox_Enter;
+            // 
+            // btn_alterar_senha
+            // 
+            btn_alterar_senha.Font = new Font("Segoe UI", 9F);
+            btn_alterar_senha.Location = new Point(59, 403);
+            btn_alterar_senha.Name = "btn_alterar_senha";
+            btn_alterar_senha.Size = new Size(72, 49);
+            btn_alterar_senha.TabIndex = 6;
+            btn_alterar_senha.Text = "Alterar";
+            btn_alterar_senha.UseVisualStyleBackColor = true;
+            btn_alterar_senha.Click += btn_alterar_senha_Click;
+            // 
+            // txt_alterar_senha
+            // 
+            txt_alterar_senha.Location = new Point(61, 329);
+            txt_alterar_senha.Multiline = true;
+            txt_alterar_senha.Name = "txt_alterar_senha";
+            txt_alterar_senha.Size = new Size(184, 50);
+            txt_alterar_senha.TabIndex = 4;
             // 
             // label1
             // 
@@ -88,16 +100,6 @@
             label1.Size = new Size(73, 30);
             label1.TabIndex = 3;
             label1.Text = "Nome";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.ForeColor = Color.Black;
-            label5.Location = new Point(58, 359);
-            label5.Name = "label5";
-            label5.Size = new Size(152, 30);
-            label5.TabIndex = 2;
-            label5.Text = "Repita a senha";
             // 
             // label4
             // 
@@ -127,28 +129,6 @@
             label2.Size = new Size(86, 30);
             label2.TabIndex = 2;
             label2.Text = "Usuário";
-            // 
-            // txt_campo_confirma_senha
-            // 
-            txt_campo_confirma_senha.Location = new Point(61, 392);
-            txt_campo_confirma_senha.Multiline = true;
-            txt_campo_confirma_senha.Name = "txt_campo_confirma_senha";
-            txt_campo_confirma_senha.PasswordChar = '*';
-            txt_campo_confirma_senha.PlaceholderText = "Repita a senha acima";
-            txt_campo_confirma_senha.Size = new Size(184, 44);
-            txt_campo_confirma_senha.TabIndex = 1;
-            txt_campo_confirma_senha.TextChanged += txt_campo_confirma_senha_TextChanged;
-            // 
-            // txt_campo_senha
-            // 
-            txt_campo_senha.Location = new Point(61, 317);
-            txt_campo_senha.Multiline = true;
-            txt_campo_senha.Name = "txt_campo_senha";
-            txt_campo_senha.PasswordChar = '*';
-            txt_campo_senha.PlaceholderText = "Ex.: Godofredo123";
-            txt_campo_senha.Size = new Size(184, 42);
-            txt_campo_senha.TabIndex = 1;
-            txt_campo_senha.TextChanged += txt_campo_senha_TextChanged;
             // 
             // txt_campo_telefone
             // 
@@ -181,24 +161,14 @@
             // 
             // bt_cancelar
             // 
-            bt_cancelar.Location = new Point(188, 478);
+            bt_cancelar.Font = new Font("Segoe UI", 9F);
+            bt_cancelar.Location = new Point(174, 403);
             bt_cancelar.Name = "bt_cancelar";
             bt_cancelar.Size = new Size(71, 49);
             bt_cancelar.TabIndex = 0;
             bt_cancelar.Text = "Cancelar";
             bt_cancelar.UseVisualStyleBackColor = true;
             bt_cancelar.Click += bt_cancelar_Click;
-            // 
-            // btn_cadastrar
-            // 
-            btn_cadastrar.Enabled = false;
-            btn_cadastrar.Location = new Point(43, 478);
-            btn_cadastrar.Name = "btn_cadastrar";
-            btn_cadastrar.Size = new Size(71, 49);
-            btn_cadastrar.TabIndex = 0;
-            btn_cadastrar.Text = "Cadastrar";
-            btn_cadastrar.UseVisualStyleBackColor = true;
-            btn_cadastrar.Click += bt_cadastrar_Click;
             // 
             // mySqlCommand1
             // 
@@ -216,27 +186,20 @@
             dgv_usuario.ReadOnly = true;
             dgv_usuario.RowHeadersWidth = 51;
             dgv_usuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_usuario.Size = new Size(489, 569);
+            dgv_usuario.Size = new Size(489, 486);
             dgv_usuario.TabIndex = 2;
+            dgv_usuario.SelectionChanged += dgv_usuario_SelectionChanged;
             // 
             // btn_excluir
             // 
-            btn_excluir.Location = new Point(330, 345);
+            btn_excluir.Location = new Point(304, 229);
             btn_excluir.Margin = new Padding(3, 2, 3, 2);
             btn_excluir.Name = "btn_excluir";
-            btn_excluir.Size = new Size(67, 40);
+            btn_excluir.Size = new Size(129, 62);
             btn_excluir.TabIndex = 3;
             btn_excluir.Text = "Excluir";
             btn_excluir.UseVisualStyleBackColor = true;
             btn_excluir.Click += btn_excluir_Click;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(304, 99);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(115, 50);
-            textBox1.TabIndex = 4;
             // 
             // mySqlCommand2
             // 
@@ -245,33 +208,11 @@
             mySqlCommand2.EnableCaching = false;
             mySqlCommand2.Transaction = null;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(311, 75);
-            label6.Name = "label6";
-            label6.Size = new Size(102, 21);
-            label6.TabIndex = 5;
-            label6.Text = "Alterar senha";
-            // 
-            // btn_alterar_senha
-            // 
-            btn_alterar_senha.Location = new Point(305, 161);
-            btn_alterar_senha.Name = "btn_alterar_senha";
-            btn_alterar_senha.Size = new Size(113, 37);
-            btn_alterar_senha.TabIndex = 6;
-            btn_alterar_senha.Text = "Alterar";
-            btn_alterar_senha.UseVisualStyleBackColor = true;
-            // 
             // frm_cadastro_usuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(939, 634);
-            Controls.Add(btn_alterar_senha);
-            Controls.Add(label6);
-            Controls.Add(textBox1);
             Controls.Add(btn_excluir);
             Controls.Add(dgv_usuario);
             Controls.Add(groupBox);
@@ -283,31 +224,25 @@
             groupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_usuario).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private GroupBox groupBox;
         private Label label1;
-        private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
-        private TextBox txt_campo_confirma_senha;
-        private TextBox txt_campo_senha;
         private TextBox txt_campo_telefone;
         private TextBox txt_campo_usuario;
         private TextBox txt_campo_nome;
         private Button bt_cancelar;
-        private Button btn_cadastrar;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private DataGridView dgv_usuario;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Button btn_excluir;
-        private TextBox textBox1;
+        private TextBox txt_alterar_senha;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand2;
-        private Label label6;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private Button btn_alterar_senha;
     }

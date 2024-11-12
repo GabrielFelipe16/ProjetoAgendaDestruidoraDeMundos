@@ -24,34 +24,6 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
             dgv_usuario.DataSource = tabela;
         }
 
-        private void verificaCadastroValido()
-        {
-            //criando uma variavel booleana que faz as verificações de campos obrigatórios 
-            bool casoBotaoValido = txt_campo_nome.Text != ""
-               && txt_campo_usuario.Text != ""
-               && txt_campo_senha.Text.Length >= 8
-               && txt_campo_confirma_senha.Text == txt_campo_senha.Text;
-
-            //verificando se a variavel criada acima retorna true or false
-            if (casoBotaoValido)
-            {
-                btn_cadastrar.Enabled = true;
-            }
-            else
-            {
-                btn_cadastrar.Enabled = false;
-            }
-        }
-
-        private void ApagarCampos()
-        {
-            txt_campo_nome.Text = "";
-            txt_campo_usuario.Text = "";
-            txt_campo_telefone.Text = "";
-            txt_campo_senha.Text = "";
-            txt_campo_confirma_senha.Text = "";
-        }
-
         public frm_cadastro_usuario()
         {
             InitializeComponent();
@@ -64,17 +36,7 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
 
         private void bt_cadastrar_Click(object sender, EventArgs e)
         {
-            UsuarioController cadastra = new UsuarioController();
-            bool resultado = cadastra.addUsuario(txt_campo_nome.Text, txt_campo_usuario.Text, txt_campo_telefone.Text, txt_campo_senha.Text);
 
-            if (resultado == false)
-            {
-                DialogResult mensagemErro = MessageBox.Show("Erro ao cadastrar", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            AtualizaDataGrid();
-
-            ApagarCampos();
         }
 
         private void bt_cancelar_Click(object sender, EventArgs e)
@@ -112,27 +74,48 @@ namespace ProjetoAgendaDestruidoraDeMundos.Views
 
         private void txt_campo_nome_TextChanged(object sender, EventArgs e)
         {
-            verificaCadastroValido();
         }
 
         private void txt_campo_usuario_TextChanged(object sender, EventArgs e)
         {
-            verificaCadastroValido();
         }
 
         private void txt_campo_telefone_TextChanged(object sender, EventArgs e)
         {
-            verificaCadastroValido();
         }
 
-        private void txt_campo_senha_TextChanged(object sender, EventArgs e)
+
+        private void btn_alterar_senha_Click(object sender, EventArgs e)
         {
-            verificaCadastroValido();
+
+            UsuarioController updateCadastro = new UsuarioController();
+
+            int usuarioId = Convert.ToInt32(dgv_usuario.SelectedRows[0].Cells["Código"].Value);
+
+            bool resultado = updateCadastro.AlterCadastro(usuarioId, txt_campo_nome.Text, txt_campo_usuario.Text, txt_campo_telefone.Text, txt_alterar_senha.Text);
+
+            if (resultado)
+            {
+                MessageBox.Show("Cadastro alterado com sucesso");
+            }
+            else
+            {
+                MessageBox.Show("Erro");
+            }
         }
 
-        private void txt_campo_confirma_senha_TextChanged(object sender, EventArgs e)
+        private void dgv_usuario_SelectionChanged(object sender, EventArgs e)
         {
-            verificaCadastroValido();
+            if (dgv_usuario.SelectedRows.Count > 0)
+            {
+                string nome = Convert.ToString(dgv_usuario.SelectedRows[0].Cells["Nome"].Value);
+                string usuario = Convert.ToString(dgv_usuario.SelectedRows[0].Cells["Usuários"].Value);
+                string telefone = Convert.ToString(dgv_usuario.SelectedRows[0].Cells["Telefone"].Value);
+
+                txt_campo_nome.Text = nome;
+                txt_campo_usuario.Text = usuario;
+                txt_campo_telefone.Text = telefone;
+            }
         }
     }
 }

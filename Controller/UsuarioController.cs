@@ -157,5 +157,45 @@ namespace ProjetoAgendaDestruidoraDeMundos.Controller
                 }
             }
         }
+
+        public bool AlterCadastro(int id, string nome, string usuario, string telefone, string senha)
+        {
+            using (MySqlConnection conn = ConexaoDB.CriaConexao())
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = "UPDATE usuarios SET nome = @novoNome, usuario = @novoUsuario, telefone = @novoTelefone, senha = @novaSenha WHERE idUsuario = @IdUsuario;";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                    cmd.Parameters.AddWithValue("@novoNome", nome);
+                    cmd.Parameters.AddWithValue("@novoUsuario", usuario);
+                    cmd.Parameters.AddWithValue("@novoTelefone", telefone);
+                    cmd.Parameters.AddWithValue("@novaSenha", senha);
+                    cmd.Parameters.AddWithValue("@IdUsuario", id);
+
+                    int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                    if (linhasAfetadas > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"Erro ao alterar: {e.Message}");
+                    return false;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
     }
 }
