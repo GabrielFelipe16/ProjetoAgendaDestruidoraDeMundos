@@ -36,6 +36,7 @@
             txt_campo_senha = new TextBox();
             label2 = new Label();
             label1 = new Label();
+            button1 = new Button();
             groupBox.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,11 +51,9 @@
             groupBox.Controls.Add(label1);
             groupBox.Font = new Font("Segoe UI", 16F);
             groupBox.ForeColor = Color.Black;
-            groupBox.Location = new Point(53, 28);
-            groupBox.Margin = new Padding(3, 4, 3, 4);
+            groupBox.Location = new Point(46, 21);
             groupBox.Name = "groupBox";
-            groupBox.Padding = new Padding(3, 4, 3, 4);
-            groupBox.Size = new Size(313, 496);
+            groupBox.Size = new Size(274, 372);
             groupBox.TabIndex = 0;
             groupBox.TabStop = false;
             groupBox.Text = "Login";
@@ -62,10 +61,9 @@
             // bt_logar
             // 
             bt_logar.Enabled = false;
-            bt_logar.Location = new Point(103, 408);
-            bt_logar.Margin = new Padding(3, 4, 3, 4);
+            bt_logar.Location = new Point(90, 306);
             bt_logar.Name = "bt_logar";
-            bt_logar.Size = new Size(127, 56);
+            bt_logar.Size = new Size(111, 42);
             bt_logar.TabIndex = 4;
             bt_logar.Text = "Entrar";
             bt_logar.UseVisualStyleBackColor = true;
@@ -77,9 +75,9 @@
             lbl_cadastro.AutoSize = true;
             lbl_cadastro.Font = new Font("Segoe UI", 9F);
             lbl_cadastro.LinkColor = Color.Black;
-            lbl_cadastro.Location = new Point(43, 323);
+            lbl_cadastro.Location = new Point(38, 242);
             lbl_cadastro.Name = "lbl_cadastro";
-            lbl_cadastro.Size = new Size(149, 20);
+            lbl_cadastro.Size = new Size(118, 15);
             lbl_cadastro.TabIndex = 3;
             lbl_cadastro.TabStop = true;
             lbl_cadastro.Text = "Não possuo cadastro";
@@ -89,52 +87,60 @@
             // 
             txt_campo_usuario.BackColor = Color.White;
             txt_campo_usuario.Cursor = Cursors.IBeam;
-            txt_campo_usuario.Location = new Point(43, 128);
-            txt_campo_usuario.Margin = new Padding(3, 4, 3, 4);
+            txt_campo_usuario.Location = new Point(38, 96);
             txt_campo_usuario.Name = "txt_campo_usuario";
-            txt_campo_usuario.Size = new Size(226, 43);
+            txt_campo_usuario.Size = new Size(198, 36);
             txt_campo_usuario.TabIndex = 2;
             txt_campo_usuario.TextChanged += txt_campo_usuario_TextChanged;
             // 
             // txt_campo_senha
             // 
             txt_campo_senha.Cursor = Cursors.IBeam;
-            txt_campo_senha.Location = new Point(43, 253);
-            txt_campo_senha.Margin = new Padding(3, 4, 3, 4);
+            txt_campo_senha.Location = new Point(38, 190);
             txt_campo_senha.Name = "txt_campo_senha";
             txt_campo_senha.PasswordChar = '*';
-            txt_campo_senha.Size = new Size(226, 43);
+            txt_campo_senha.Size = new Size(198, 36);
             txt_campo_senha.TabIndex = 2;
             txt_campo_senha.TextChanged += txt_campo_senha_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(43, 209);
+            label2.Location = new Point(38, 157);
             label2.Name = "label2";
-            label2.Size = new Size(89, 37);
+            label2.Size = new Size(72, 30);
             label2.TabIndex = 0;
             label2.Text = "Senha";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(43, 84);
+            label1.Location = new Point(38, 63);
             label1.Name = "label1";
-            label1.Size = new Size(108, 37);
+            label1.Size = new Size(86, 30);
             label1.TabIndex = 0;
             label1.Text = "Usuário";
             // 
+            // button1
+            // 
+            button1.Location = new Point(256, 399);
+            button1.Name = "button1";
+            button1.Size = new Size(88, 49);
+            button1.TabIndex = 1;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // frm_login
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.v602_nunoon_05_rippednotes1;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(423, 600);
+            ClientSize = new Size(370, 450);
+            Controls.Add(button1);
             Controls.Add(groupBox);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             Name = "frm_login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Lista Telefônica Mortifera: Login";
@@ -153,5 +159,6 @@
         private Label label1;
         private LinkLabel lbl_cadastro;
         private Button bt_logar;
+        private Button button1;
     }
 }

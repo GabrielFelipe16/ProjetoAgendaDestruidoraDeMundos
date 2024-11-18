@@ -217,6 +217,7 @@
             Controls.Add(dgv_usuario);
             Controls.Add(groupBox);
             Name = "frm_cadastro_usuario";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Lista Telefônica Mortífera: Alterar Cadastro";
             FormClosed += frm_cadastro_usuario_FormClosed;
             Load += frm_alterar_cadastro_Load;

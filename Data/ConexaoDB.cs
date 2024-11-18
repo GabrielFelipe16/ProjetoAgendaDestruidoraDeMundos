@@ -20,5 +20,15 @@ namespace ProjetoAgendaDestruidoraDeMundos.Data
             return conn;
 
         }
+        static public MySqlConnection CriaConexao(string usuario, string senha)
+        {
+            //String com informações para conexão
+            string strConn = $"Server=localhost;Database=dbagenda;User ID='{usuario}';password='{senha}';";
+
+            //iniciando uma conexão com o banco de dados
+            MySqlConnection conn = new MySqlConnection(strConn);
+
+            return conn;
+        }
     }
 }

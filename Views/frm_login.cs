@@ -1,5 +1,6 @@
 using MySql.Data.MySqlClient;
 using ProjetoAgendaDestruidoraDeMundos.Controller;
+using ProjetoAgendaDestruidoraDeMundos.Data;
 using ProjetoAgendaDestruidoraDeMundos.Views;
 
 namespace ProjetoAgendaDestruidoraDeMundos
@@ -66,6 +67,19 @@ namespace ProjetoAgendaDestruidoraDeMundos
         private void frm_login_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MySqlConnection conn = ConexaoDB.CriaConexao("teste", "teste123");
+                conn.Open();
+                MessageBox.Show("Furunciou");
+            }catch(Exception erro)
+            {
+                MessageBox.Show($"Errou seu burro: {erro.Message}");
+            }
         }
     }
 }
